@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  font-family:"Montserrat", serif;
+  display: flex;
+  background:linear-gradient(45deg, rgb(176, 213, 232), rgb(11, 106, 173));
+  justify-content:center;
+}
+
+input {
+  background-color: #f8f8f8;
+  color: #000000;
+}
+
+.container {
+  color:rgb(255, 255, 255);
+  text-align: center;
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  margin:auto;
+  width:450px;
+  height:500px;
+  border-radius:20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.container h1 {
+  display:flex;
+  justify-content:center;
+  margin:0;
+  font-size:40px;
+}
+
+.container form  {
+  display:flex;
+  justify-content:center;
+  flex-direction: column;
+  margin:0px 50px;
+}
+
+.container form label {
+  padding:20px 0;
+  display:flex;
+  justify-content: flex-start;
+}
+
+.container input {
+  padding:10px;
+  border:2px solid transparent;
+  border-radius:8px;
+}
+
+.container form button {
+  display:flex;
+  justify-content: center;
+  margin:10px 0px 0 0px;
+  text-align:center;
+  padding:7px;
+  border:2px solid transparent;
+  border-radius:20px;
+  color:white;
+  font-weight:500;
+  background-color:rgb(11, 168, 131);
+}
+
+.container form button:hover {
+  background-color:rgb(6, 152, 106);
+}
+.register {
+  display:flex;
+  justify-content:center;
+}
+
+.message {
+  padding:20px;
+  font-weight:600;
+}
+
+.success {
+  color:rgb(121, 230, 121);
+}
+
+.error {
+  color:red;
+}
+
+.error_message {
+  color:red;
+  font-size: 12px;
+  padding-top: 10px;
+}

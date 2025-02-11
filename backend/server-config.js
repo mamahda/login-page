@@ -1,4 +1,4 @@
-import { app, port } from "./main.js";
+import { app, port } from "../main.js";
 import db from "./database-config.js";
 
 app.get('/api/dev/test', (req, res) => {

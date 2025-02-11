@@ -1,5 +1,4 @@
 import mysql from "mysql";
-import "./main.js";
 
 const db = mysql.createConnection({
   "host": "localhost",

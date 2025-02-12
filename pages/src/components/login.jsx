@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginAuth } from "../utils/auth";
-import "../styles/login.css";
+import styles from "../styles/login.module.css"; // Import the CSS module
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -28,7 +28,7 @@ function Login() {
   }
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <label htmlFor="username">Username:</label>
@@ -65,10 +65,11 @@ function Login() {
         <button type="submit">Login</button>
 
         {/* Show error message if login failed */}
-        {errorMessage && <div class="error_message" className="error-message">{errorMessage}</div>}
+        {errorMessage && <div className={styles.error_message}>{errorMessage}</div>}
       </form>
 
-      <div className="register">
+      <div className={styles.register}>
+        {/* You can add a link to the register page here */}
       </div>
     </div>
   );

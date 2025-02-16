@@ -61,7 +61,7 @@ function Register() {
           onChange={(e) => setUsername(e.target.value)}
         />
 
-        <label className={styles.registerlabel} htmlFor="email">Username:</label>
+        <label className={styles.registerlabel} htmlFor="email">Email:</label>
         <input
           className={styles.registeremail}
           type="text"

@@ -1,48 +1,62 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginAuth } from "../utils/auth";
-import styles from "../styles/login.module.css"; // Import the CSS module
+import { loginAuth } from "../utils/login-auth";
+import styles from "../styles/login.module.css"; 
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(""); 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.classList.add(styles.loginpage);
+    return () => {
+      document.body.classList.remove(styles.loginpage);
+    };
+  }, []);
 
   function handleLogin(e) {
     e.preventDefault(); 
-    
+
     loginAuth(username, password)
-      .then((isAuthenticated) => {
-        if (isAuthenticated) {
-          setErrorMessage("Login Success.");
-          navigate("/Home");
-        } else {
-          setErrorMessage("Username or password is incorrect.");
-        }
-      })
-      .catch((error) => {
-        setErrorMessage("An error occurred. Please try again later.");
-      });
+    .then((isAuthenticated) => {
+      if (isAuthenticated) {
+        if (window.confirm("Login Success! Do you want to continue?")) {
+  navigate("/Home");
+}
+      } else {
+        alert("Username or password is incorrect.");
+      }
+    })
+    .catch(() => {
+      alert("An error occurred. Please try again later.");
+    });
+  }
+
+  function handleRegister(e) {
+    e.preventDefault();
+    navigate("/register");
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.logincontainer}>
       <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <label htmlFor="username">Username:</label>
+      <form className={styles.loginform} onSubmit={handleLogin}>
+        <label className={styles.loginlabel} htmlFor="username">Username or email:</label>
         <input
+          className={styles.loginusername}
           type="text"
           name="username"
           id="username"
-          placeholder="Enter your username"
+          placeholder="Enter your username or email"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
 
-        <label htmlFor="password">Password:</label>
+        <label className={styles.loginlabel} htmlFor="password">Password:</label>
         <input
+          className={styles.loginpassword}
           type="password"
           name="password"
           id="password"
@@ -51,26 +65,13 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <label htmlFor="remember_me">
-          <input
-            type="checkbox"
-            name="remember_me"
-            id="remember_me"
-            checked={rememberMe}
-            onChange={(e) => setRememberMe(e.target.checked)}
-          />
-          Remember me?
-        </label>
+        <button className={styles.loginbutton} type="submit">Login</button>
 
-        <button type="submit">Login</button>
-
-        {/* Show error message if login failed */}
-        {errorMessage && <div className={styles.error_message}>{errorMessage}</div>}
       </form>
-
-      <div className={styles.register}>
-        {/* You can add a link to the register page here */}
+      <div className={styles.loginregister}>
+        <button className={styles.gotoregisterbutton} onClick={handleRegister}>Register</button>
       </div>
+
     </div>
   );
 }

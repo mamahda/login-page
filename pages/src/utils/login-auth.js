@@ -1,5 +1,4 @@
 export async function loginAuth(username, password) {
-  console.log("Logging in with:", username, password);
 
   const endpoint = "http://localhost:3002/api/users/login";
 

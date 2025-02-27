@@ -1,7 +1,10 @@
+// function to register a new user
 export async function registerAuth(username, email, password, setMessage) {
 
+  // endpoint for register
   const endpoint = "http://localhost:3002/api/users/register";
 
+  // send register data to server
   try {
     const response = await fetch(endpoint, {
       method: "POST",
@@ -21,6 +24,7 @@ export async function registerAuth(username, email, password, setMessage) {
       return false;
     }
   } catch (error) {
+    // handle error
     console.error("Error registering user:", error);
     return false;
   }

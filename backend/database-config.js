@@ -2,6 +2,7 @@ import mysql from "mysql";
 import apiLogin from "./api-login.js";
 import apiRegister from "./api-register.js";
 
+// initialize database connection
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -9,6 +10,7 @@ const db = mysql.createConnection({
   database: "login_page"
 });
 
+// initialize api
 apiLogin();
 apiRegister();
 

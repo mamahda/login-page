@@ -1,7 +1,10 @@
+// function to authenticate user login
 export async function loginAuth(username, password) {
 
+  // endpoint for login 
   const endpoint = "http://localhost:3002/api/users/login";
 
+  // send login data to server
   try {
     const response = await fetch(endpoint, {
       method: "POST",
@@ -20,6 +23,7 @@ export async function loginAuth(username, password) {
       return false; 
     }
   } catch (error) {
+    // handle error 
     console.error("Error during login:", error);
     return false;
   }

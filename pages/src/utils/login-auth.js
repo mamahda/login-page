@@ -2,7 +2,7 @@
 export async function loginAuth(username, password) {
 
   // endpoint for login 
-  const endpoint = "http://localhost:3002/api/users/login";
+  const endpoint = "http://localhost:3002/api/users/login/";
 
   // send login data to server
   try {

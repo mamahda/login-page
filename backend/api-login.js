@@ -4,8 +4,8 @@ import bcrypt from "bcryptjs";
 
 // function to login user 
 export default function apiLogin() {
-  // api for login user
-  app.post('/api/users/login', async (req, res) => {
+  // api for login user 
+  app.post('/api/users/login/', async (req, res) => {
     const { username, password } = req.body;
 
     // check if username and password is empty
